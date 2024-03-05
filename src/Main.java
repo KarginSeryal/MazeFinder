@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        getMaze("Maze");
+        Mouse maze1 = new Mouse(getMaze("Maze"));
 
     }
 
