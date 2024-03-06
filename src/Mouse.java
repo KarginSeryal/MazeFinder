@@ -19,15 +19,23 @@ public class Mouse {
          int[] end = {maze.length - 1, maze[0].length - 1};
          cords.add(start);
          int[][] Haroon = new int[500][2];
-         while(cords.get(cords.size()-1)[0] == end[0] && cords.get(cords.size()-1)[1] == end[1]){
-
+         int[] temp = new int[2];
+         while(lastCord()[0] == end[0] && lastCord()[1] == end[1]){
+            temp = directions(lastCord());
+            switch (temp[0]){
+                case 1: cords.add(new int[]{lastCord()[0], lastCord()[1] - 1, 0});
+                case 2: cords.add(new int[]{lastCord()[0] - 1, lastCord()[1], 0});
+                case 3: cords.add(new int[]{lastCord()[0], lastCord()[1] + 1, 0});
+                case 4: cords.add(new int[]{lastCord()[0] + 1, lastCord()[1], 0});
+                case 5:
+            }
 
 
 
          }
     }
 
-    public int[] direction(int[] location){
+    public int[] directions(int[] location){
         int[] theWay = {5,0};
         if(location[1] != 0 && maze[location[0]][location[1] - 1] == "."){ // left
             theWay[0] = 1;
@@ -56,6 +64,17 @@ public class Mouse {
     }
 
 
+    public int[] forkFinder(){
+        for(int i = cordsLast(); i >= 0)
+    }
+
+    public int cordsLast(){
+        return cords.size() - 1;
+    }
+
+    public int[] lastCord(){
+        return cords.get(cordsLast());
+    }
 
 
 }
